@@ -1,0 +1,209 @@
+body {
+  text-align: center;
+  margin: 0;
+  padding: 30px;
+  line-height: 1.6;
+  background-color: #f8f5bb;
+}
+
+#open-book {
+  display:none;
+}
+
+#open-book:checked ~ .cover {
+  display: none;
+}
+
+#open-book:checked ~ .paper {
+  display: block;
+}
+
+.cover {
+  width: 900px;
+  min-height: 1000px;
+  margin: auto;
+  padding: 60px;
+  background-color: #4f72a8;
+  position: relative;
+}
+
+.diary-title {
+  width: 600px;
+  margin: 80px auto;
+  padding: 20px;
+  background-color: white;
+  font-size: 60px;
+  text-align: center;
+}
+
+.right-arrow {
+  position: absolute;
+  right: 40px;
+  bottom: 30px;
+  font-size: 50px;
+  color: white;
+  cursor: pointer;
+}
+
+.left-arrow {
+  position: absolute;
+  left: 40px;
+  bottom: 30px;
+  font-size: 50px;
+  cursor: pointer;
+}
+
+.paper {
+  display: none;
+
+  width: 900px;
+  min-height: 1000px;
+  margin: auto;
+  padding: 60px;
+  background-color: white;
+  position: relative;
+  
+  background-image:
+    linear-gradient(
+      to right,
+      transparent 80px,
+      pink 81px,
+      transparent 82px
+    ),
+    repeating-linear-gradient(
+      to bottom,
+      transparent 0px,
+      transparent 44px,
+      lightblue 45px
+    );
+
+  border: 1px solid lightgray;
+}
+
+h1 {
+  text-align: center;
+  margin-top: -5px;
+}
+
+p {
+  text-align: center;
+}
+
+.red {
+  color: red;
+}
+
+.green {
+  color: green;
+}
+
+.blue {
+  color: blue;
+}
+
+.purple {
+  color: purple;
+}
+
+.pink {
+  color: rgb(231, 123, 141);
+}
+
+.yellow {
+  color: #e6b800;
+}
+
+.basket {
+  width: 80px;
+  height: 40px;
+  border: 2px solid green;
+  margin: 10px auto;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.apple {
+  width: 20px;
+  height: 20px;
+  background-color: red;
+  border-radius: 50%;
+  transition: 0.3s;
+}
+
+.apple:hover {
+  transform: scale(1.5);
+}
+
+.peanut-butter {
+  width: 20px;
+  height: 30px;
+  background-color: #e6b800;
+  border-radius: 5px;
+  transition: 0.3s;
+}
+
+.peanut-butter:hover {
+  transform: rotate(15deg);
+}
+
+.shelf {
+  width: 300px;
+  height: 40px;
+  margin: 10px auto;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+}
+
+.blueberry-jam {
+  width: 20px;
+  height: 30px;
+  background-color: blue;
+  border-radius: 5px;
+  transition: 0.3s;
+}
+
+.grape-jam {
+  width: 20px;
+  height: 30px;
+  background-color: purple;
+  border-radius: 5px;
+  transition: 0.3s;
+}
+
+.strawberry-jam {
+  width: 20px;
+  height: 30px;
+  background-color: rgb(231, 123, 141);
+  border-radius: 5px;
+  transition: 0.3s;
+}
+
+.pangolin-regular {
+  font-family: "Pangolin", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.handlee-regular {
+  font-family: "Handlee", cursive;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 30px;
+}
+
+.huninn-regular {
+  font-family: "Huninn", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 25px;
+}
+
+.big {
+    font-size: 50px;
+}
