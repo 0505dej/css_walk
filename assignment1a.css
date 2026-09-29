@@ -1,92 +1,160 @@
 body {
-  text-align: center;
   margin: 0;
-  padding: 30px;
-  line-height: 1.6;
-  background-color: #f8f5bb;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  background-image: url("scribbl.jpg");
+  background-repeat: repeat;
+  background-size: 1500px;
+
 }
 
-#open-book {
-  display:none;
-}
-
-#open-book:checked ~ .cover {
+#cover-page,
+#spread-one,
+#spread-two {
   display: none;
 }
 
-#open-book:checked ~ .paper {
-  display: block;
+.book {
+  width: 1000px;
+  height: 700px;
+  position: relative;
+  z-index: 2;
 }
 
 .cover {
-  width: 900px;
-  min-height: 1000px;
-  margin: auto;
-  padding: 60px;
+  display: none;
+  width: 500px;
+  height: 700px;
+  position: absolute;
+  left: 250px;
+  top: 0;
+  box-sizing: border-box;
   background-color: #4f72a8;
-  position: relative;
+  border-left: 15px solid #36557f;
+  border-radius: 5px 18px 18px 5px;
+  box-shadow:
+    8px 8px 0 white,
+    15px 15px 20px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
 }
 
 .diary-title {
-  width: 600px;
+  width: 300px;
   margin: 80px auto;
   padding: 20px;
   background-color: white;
-  font-size: 60px;
+  font-size: 55px;
   text-align: center;
 }
 
-.right-arrow {
-  position: absolute;
-  right: 40px;
-  bottom: 30px;
-  font-size: 50px;
-  color: white;
-  cursor: pointer;
-}
-
-.left-arrow {
-  position: absolute;
-  left: 40px;
-  bottom: 30px;
-  font-size: 50px;
-  cursor: pointer;
-}
-
-.paper {
+.spread {
   display: none;
+  width: 1000px;
+  height: 700px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  box-shadow:
+    10px 15px 25px rgba(0, 0, 0, 0.25);
+}
 
-  width: 900px;
-  min-height: 1000px;
-  margin: auto;
-  padding: 60px;
-  background-color: white;
-  position: relative;
-  
+.page {
+  width: 50%;
+  height: 100%;
+  padding: 45px;
+  box-sizing: border-box;
+  background-color: rgb(243, 241, 238);
   background-image:
     linear-gradient(
       to right,
-      transparent 80px,
-      pink 81px,
-      transparent 82px
+      transparent 50px,
+      pink 51px,
+      transparent 52px
     ),
     repeating-linear-gradient(
       to bottom,
       transparent 0px,
-      transparent 44px,
-      lightblue 45px
+      transparent 39px,
+      lightblue 40px
     );
-
   border: 1px solid lightgray;
+}
+
+.left-page {
+  position: absolute;
+  left: 0;
+  top: 0;
+  border-radius: 15px 0 0 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+}
+
+.right-page {
+  position: absolute;
+  right: 0;
+  top: 0;
+  border-radius: 0 15px 15px 0;
+}
+
+#cover-page:checked ~ .book .cover {
+  display: block;
+}
+
+#spread-one:checked ~ .book .spread1 {
+  display: block;
+}
+
+#spread-one:checked ~ .controls1 {
+  display: block;
+}
+
+#spread-two:checked ~ .book .spread2 {
+  display: block;
+}
+
+#spread-two:checked ~ .controls2 {
+  display: block;
+}
+
+.controls {
+  display: none;
+}
+
+.background-left,
+.background-right {
+  position: fixed;
+  top: 0;
+  width: 50%;
+  height: 100vh;
+  cursor: pointer;
+  z-index: 1;
+}
+
+.background-left {
+  left: 0;
+}
+
+.background-right {
+  right: 0;
 }
 
 h1 {
   text-align: center;
+  font-size: 38px;
   margin-top: -5px;
+  margin-bottom: 30px;
 }
 
 p {
   text-align: center;
+  line-height: 1.5;
+  margin: 20px 0;
 }
 
 .red {
@@ -110,15 +178,14 @@ p {
 }
 
 .yellow {
-  color: #e6b800;
+  color: #b68603;
 }
 
 .basket {
-  width: 80px;
-  height: 40px;
-  border: 2px solid green;
+  width: 100px;
+  height: 50px;
+  border: 3px solid green;
   margin: 10px auto;
-
   display: flex;
   justify-content: center;
   align-items: center;
@@ -126,8 +193,8 @@ p {
 }
 
 .apple {
-  width: 20px;
-  height: 20px;
+  width: 30px;
+  height: 30px;
   background-color: red;
   border-radius: 50%;
   transition: 0.3s;
@@ -138,9 +205,9 @@ p {
 }
 
 .peanut-butter {
-  width: 20px;
-  height: 30px;
-  background-color: #e6b800;
+  width: 25px;
+  height: 40px;
+  background-color: #b68603;
   border-radius: 5px;
   transition: 0.3s;
 }
@@ -153,7 +220,6 @@ p {
   width: 300px;
   height: 40px;
   margin: 10px auto;
-
   display: flex;
   justify-content: center;
   align-items: center;
@@ -161,40 +227,47 @@ p {
 }
 
 .blueberry-jam {
-  width: 20px;
-  height: 30px;
+  width: 25px;
+  height: 40px;
   background-color: blue;
   border-radius: 5px;
   transition: 0.3s;
 }
 
 .grape-jam {
-  width: 20px;
-  height: 30px;
+  width: 25px;
+  height: 40px;
   background-color: purple;
   border-radius: 5px;
   transition: 0.3s;
 }
 
 .strawberry-jam {
-  width: 20px;
-  height: 30px;
+  width: 25px;
+  height: 40px;
   background-color: rgb(231, 123, 141);
   border-radius: 5px;
   transition: 0.3s;
+}
+
+.blueberry-jam:hover,
+.grape-jam:hover,
+.strawberry-jam:hover {
+  transform: translateY(-10px);
 }
 
 .pangolin-regular {
   font-family: "Pangolin", cursive;
   font-weight: 400;
   font-style: normal;
+   font-size: 50px;
 }
 
 .handlee-regular {
   font-family: "Handlee", cursive;
   font-weight: 400;
   font-style: normal;
-  font-size: 30px;
+  font-size: 27px;
 }
 
 .huninn-regular {
@@ -205,5 +278,7 @@ p {
 }
 
 .big {
-    font-size: 50px;
+  font-size: 38px;
+  text-align: center;
+  margin-top: 30px;
 }
